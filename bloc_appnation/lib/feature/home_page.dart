@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:bloc_appnation/bloc/bloc_management.dart';
 import 'package:bloc_appnation/constants/constants.dart';
 import 'package:bloc_appnation/feature/settings_screen.dart';
@@ -113,7 +111,7 @@ class _BlocBuilder extends StatelessWidget {
               ),
             );
           }
-          // Listede resmi boş olan öğeleri filtreleyerek sadece geçerli resimleri göster
+
           final breedsWithImages =
               state.breeds.where((breed) => breed.imageUrl.isNotEmpty).toList();
 
@@ -153,7 +151,7 @@ class _GridViewBuilder extends StatelessWidget {
           },
           child: breed.imageUrl.isNotEmpty
               ? _gestureDetectorCard(breed: breed)
-              : const SizedBox.shrink(), // Resim URL'si boş ise bu öğeyi atla
+              : const SizedBox.shrink(),
         );
       },
     );
@@ -171,7 +169,6 @@ class _GridViewBuilder extends StatelessWidget {
       builder: (context) => DogBreedBottomSheet(
         breed: breed.breed,
         subBreeds: subBreeds,
-        // Resmi DogBreedBottomSheet'e geçir
       ),
     );
   }
@@ -197,8 +194,8 @@ class _gestureDetectorCard extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) => const SizedBox
-                .shrink(), // Resim yüklenemezse boş bir widget göster
+            errorBuilder: (context, error, stackTrace) =>
+                const SizedBox.shrink(),
           ),
           Container(
             color: Colors.black.withOpacity(0.5),

@@ -22,20 +22,17 @@ class _DogBreedBottomSheetState extends State<DogBreedBottomSheet> {
       BuildContext context, String imageUrl) async {
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.transparent, // Arka planı şeffaf yap
+      backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
         return Center(
-          // Ekranın ortasına yerleştir
           child: Column(
-            mainAxisSize: MainAxisSize.min, // İçeriği mümkün olduğunca daralt
+            mainAxisSize: MainAxisSize.min,
             children: [
               ClipRRect(
-                borderRadius:
-                    BorderRadius.circular(8), // Resmin köşelerini yuvarla
+                borderRadius: BorderRadius.circular(8),
                 child: Image.network(
                   imageUrl,
-                  width: MediaQuery.of(context).size.width *
-                      0.7, // Resmi biraz küçült
+                  width: MediaQuery.of(context).size.width * 0.7,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -44,9 +41,8 @@ class _DogBreedBottomSheetState extends State<DogBreedBottomSheet> {
                   Icons.close,
                   size: 24,
                   color: Colors.white,
-                ), // Çarpı ikonunu göster
-                onPressed: () =>
-                    Navigator.pop(context), // Butona basıldığında kapat
+                ),
+                onPressed: () => Navigator.pop(context),
               ),
             ],
           ),
@@ -69,7 +65,7 @@ class _DogBreedBottomSheetState extends State<DogBreedBottomSheet> {
   @override
   void initState() {
     super.initState();
-    _generateRandomImage(); // İlk resmi yüklemek için
+    _generateRandomImage();
   }
 
   @override
@@ -82,29 +78,21 @@ class _DogBreedBottomSheetState extends State<DogBreedBottomSheet> {
           if (_imageUrl != null)
             Expanded(
               child: Image.network(_imageUrl!, fit: BoxFit.cover),
-            ), // Resim URL'si null değilse göster
+            ),
           Text(widget.breed, style: MyConstants.bottomSheetTextStyle),
           ...widget.subBreeds.map((subBreed) => Text(subBreed)).toList(),
-
           ElevatedButton(
             child: const Text('Generate'),
             onPressed: () async {
-              // Mevcut bottom sheet'i kapat
               Navigator.pop(context);
-              // API'den yeni bir resim getir
+
               final imageUrl = await context
                   .read<DogApiService>()
                   .fetchRandomImageForBreed(widget.breed);
-              // Yeni bottom sheet'i göster
+
               _showImageOnlyBottomSheet(context, imageUrl);
             },
           ),
-
-          /*  ElevatedButton(
-            child: Text('Generate'),
-            onPressed:
-                _generateRandomImage, // Generate butonuna basıldığında yeni resim getir
-          ), */
         ],
       ),
     );

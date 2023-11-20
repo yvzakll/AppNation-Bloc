@@ -5,7 +5,7 @@ import 'package:bloc_appnation/feature/splash_screen.dart';
 import 'package:bloc_appnation/service/dog_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart'; // provider paketini import edin
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
           '/home': (context) => HomePage(),
           '/splash': (context) => SplashScreen(),
           '/settings': (context) => SettingsScreen(),
-          // Diğer sayfalarınız için daha fazla route ekleyin...
         },
         debugShowCheckedModeBanner: false,
         title: 'Dog Breeds App',
@@ -48,22 +47,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-/* MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Dog Breeds App',
-        theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              shadowColor: Colors.black,
-              titleTextStyle:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.w900),
-              centerTitle: true,
-              iconTheme: IconThemeData(color: Colors.black)),
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: SplashScreen(),
-      ), */
