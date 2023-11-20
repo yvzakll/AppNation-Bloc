@@ -2,15 +2,11 @@
 
 A new Flutter project.
 
-## Getting Started
+## Geliştirici
+YAVUZ AKILLI
 
-This project is a starting point for a Flutter application.
+## Eksik Kalan Noktalar
+1-TextField kaydırılıp uzatılabilir yapılamadı.
+2-Görsel url'i sıkıntılı olan GridView itemleri gösterilmek istenmese de görünüyor.
+3-Bloc state management yüzeysel giriş seviyesinde kullanıldı.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
